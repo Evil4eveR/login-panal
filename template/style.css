@@ -1,0 +1,24 @@
+.form-login {
+  width: 100%;
+  max-width: 500px;
+  margin: 150px auto;
+  background-image: url('./img/fbackg.jpg');
+  background-size: cover;
+  padding: 10px;
+  border-radius: 7%;
+  border-style: solid;
+}
+body {
+  background-image: url('./img/back.jpg');
+  background-size: cover;
+}
+.form-reg {
+  width: 100%;
+  max-width: 500px;
+  margin: 60px auto;
+  background-image: url('./img/rbg.jpg');
+  background-size: cover;
+  padding: 10px;
+  border-radius: 7%;
+  border-style: solid;
+}
