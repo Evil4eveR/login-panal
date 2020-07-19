@@ -1,6 +1,7 @@
 <?php
 
 require_once( './inc/connect.php' );
+require_once( './ClassPHP/_init.php');
 
 ?>
 
@@ -21,13 +22,38 @@ require_once( './inc/connect.php' );
 
 <div class = 'row'>
 <div class = 'col-sm-12 col-md-4 form-container'>
-<form class = 'form-login' action = ''>
+<form method="POST" class = 'form-login' action = '<?=$_SERVER['PHP_SELF']?>'>
 <div class = 'form-group'>
-<h3>login</h3>
+<h3><span class ='label label-default'>login</span></h3>
+<?php
+   
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+   // username and password sent from form 
+   
+   $myusername = mysqli_real_escape_string($conn,$_POST['username']);
+   $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
+  
+   $sql= "SELECT * FROM users WHERE username = '$myusername' AND password = '$mypassword' ";
+    $result = mysqli_query($conn,$sql);
+    if (!$result) {
+        printf("Error: %s\n", mysqli_error($conn));
+        exit();
+    }
+    $check = mysqli_fetch_array($result);
+    if(isset($check)){
+        //session_register("myusername");
+        $_SESSION['login_user'] = $myusername;
+        
+        header("location: welcome.php");
+     }else {
+        echo"<h5 class='alert alert-danger'>Your Login Name or Password is invalid</h5>";
+        }
+}
+?>
 </div>
 <div class = 'form-group'>
 <label for = 'username'><span class = 'label label-default'>USERNAME</span></label>
-<input type = 'text' class = 'form-control' name = 'username' id = 'username' aria-describedby = 'helpUsername' placeholder = 'username'>
+<input type = 'text' class = 'form-control' name = 'username' id = 'username' aria-describedby = 'helpUsername' placeholder = 'username' value="<?= $myusername ?? "" ?>">
 <small id = 'helpUsername' class = 'form-text text-muted'>Help text</small>
 </div>
 <div class = 'form-group'>
