@@ -33,6 +33,10 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `password` varchar(255) NOT NULL,
+  `phone` int(15) DEFAULT 0,
+  `address` varchar(255) NOT NULL,
+  `bio` text(255) DEFAULT NULL,
+  `nat` varchar(255) DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

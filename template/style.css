@@ -10,12 +10,15 @@ body {
 .form-container {
 	padding: 20px;
 	background-color: #fff;
-	height: 100vh;
+	height: 100%;
+	min-height: 100vh;
+	position: static;
 }
 
 form {
 	width: 100%;
 	margin: auto;
+	height: 100%;
 }
 
 h1,
@@ -31,4 +34,31 @@ label {
 
 .form-reg {
 	margin-top: 20px;
+}
+#titleh {
+	padding: 5px;
+	margin: 10px 10px;
+	text-align: center;
+	background-color: slategray;
+	color: whitesmoke;
+	font-size: xx-large;
+	font-weight: 300;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.image {
+	margin-top: 50px;
+	border-radius: 10px;
+	border-color: #fff;
+	border-style: solid;
+	background-color: #fff;
+}
+.text {
+	text-align: justify;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	color: darkcyan;
+	font-style: normal;
+	background-color: gainsboro;
+}
+#logout {
+	margin-left: 500px;
 }
